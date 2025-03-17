@@ -1,5 +1,8 @@
 # Error using static glibc builds with Varnish TinyKVM
 
+> [!NOTE]  
+> This has been resolved by specifying `-no-pie` and the flags moved to the .cargo/config.toml.
+
 Reproducer to demonstrate broken static glibc Rust builds with Varnish TinyKVM.
 
 The current examples of Rust with Varnish TinyKVM use musl.

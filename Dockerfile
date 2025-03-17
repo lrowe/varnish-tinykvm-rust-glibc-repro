@@ -25,16 +25,8 @@ FROM public.ecr.aws/docker/library/rust:1.85-slim-bookworm AS build_rust
 RUN rustup target add x86_64-unknown-linux-musl
 COPY hello_world /hello_world/
 WORKDIR /hello_world
-RUN set -e; \
-    export RUSTFLAGS='-C link-args=-Wl,-Ttext-segment=0x400000'; \
-    cargo build --release --target x86_64-unknown-linux-musl; \
-    ldd /hello_world/target/x86_64-unknown-linux-musl/release/hello_world; \
-    /hello_world/target/x86_64-unknown-linux-musl/release/hello_world
-RUN set -e; \
-    export RUSTFLAGS='-C target-feature=+crt-static'; \
-    cargo build --release --target x86_64-unknown-linux-gnu; \
-    ldd /hello_world/target/x86_64-unknown-linux-gnu/release/hello_world; \
-    /hello_world/target/x86_64-unknown-linux-gnu/release/hello_world
+RUN cargo run --release --target x86_64-unknown-linux-musl
+RUN cargo run --release --target x86_64-unknown-linux-gnu
 
 FROM varnish
 ENV VMOD_RUN_DEPS="libcurl4 libpcre3 libarchive13"

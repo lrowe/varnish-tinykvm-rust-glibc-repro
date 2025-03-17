@@ -1,0 +1,5 @@
+[target.x86_64-unknown-linux-musl]
+rustflags = ["-C", "link-args=-Wl,-Ttext-segment=0x400000"]
+
+[target.x86_64-unknown-linux-gnu]
+rustflags = ["-C", "target-feature=+crt-static", "-C", "link-arg=-no-pie"]
