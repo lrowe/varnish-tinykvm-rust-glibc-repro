@@ -1,7 +1,7 @@
-# Error using static glibc builds with Varnish TinyKVM
+# Fixed ~~Error~~ using static glibc builds with Varnish TinyKVM
 
 > [!NOTE]  
-> This has been resolved by specifying `-no-pie` and the flags moved to the .cargo/config.toml.
+> This was fixed by varnish/tinykvm#20
 
 Reproducer to demonstrate broken static glibc Rust builds with Varnish TinyKVM.
 

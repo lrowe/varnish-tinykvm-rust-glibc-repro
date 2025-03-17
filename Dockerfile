@@ -11,7 +11,7 @@ RUN set -e; \
     cd /; \
     git clone https://github.com/varnish/libvmod-tinykvm.git; \
     cd libvmod-tinykvm \
-    git checkout c74baf190c1827e7e44112bb80f297ca9794d66c; \
+    git checkout feff157afd6d97549c45724adc09d38cc8ae1959; \
     git submodule init; \
     git submodule update;
 RUN set -e; \
